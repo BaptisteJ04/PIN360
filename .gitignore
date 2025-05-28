@@ -5,6 +5,9 @@
 /output/
 *.svg
 
+# Doc automatique
+/docs/
+
 # Librairies externes (si gérées manuellement)
 libs/
 
