@@ -2,6 +2,7 @@
     <property name="src.dir" value="src"/>
     <property name="build.dir" value="classes"/>
     <property name="libs.dir" value="libs"/>
+    <property name="output.dir" value="output"/>
     <property name="doc.dir" value="docs/javadoc"/>
     <property name="main.class.gui" value="fr.esisar.geometrie.gui.GUIInteractifs"/>
     <property name="main.class.jo" value="fr.esisar.geometrie.JO"/>
@@ -15,6 +16,7 @@
     <target name="clean">
         <delete dir="${build.dir}"/>
         <delete dir="${doc.dir}"/>
+        <delete dir="${output.dir}"/>
     </target>
 
     <!-- Compile -->
@@ -47,7 +49,7 @@
 
     <!-- Run JO -->
     <target name="run.jo" depends="compile">
-        <java classname="${main.class.jo}" fork="true" dir="${build.dir}" output="anneaux.svg">
+        <java classname="${main.class.jo}" fork="true" dir="${build.dir}" output="${output.dir}/anneaux.svg">
             <classpath>
                 <pathelement path="${build.dir}"/>
                 <path refid="classpath"/>

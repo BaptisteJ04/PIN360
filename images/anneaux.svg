@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="600" width="800">
+<style> @keyframes carre {0%{transform: translate(0, 0);}25% {transform: translate(400px, 0);}50% {transform: translate(400px, 400px);}75% {transform: translate(0, 400px);}100% {transform: translate(0, 0);}}.anim {animation: carre 8s infinite;}</style><g stroke-width="9.5" stroke="#000" fill="none">
+<circle class="anim" cx="54.00" cy="54.00" r="49.25" stroke="blue" stroke-width="10" />
+<circle class="anim" cx="171.00" cy="54.00" r="49.25" stroke="black" stroke-width="10" />
+<circle class="anim" cx="112.50" cy="104.00" r="49.25" stroke="yellow" stroke-width="10" />
+<circle class="anim" cx="288.00" cy="54.00" r="49.25" stroke="red" stroke-width="10" />
+<circle class="anim" cx="229.50" cy="104.00" r="49.25" stroke="green" stroke-width="10" />
+<path class="anim" d="M93.4,24.45A49.25,49.25 0 0 1 93.4,83.55" stroke="blue"/>
+<path class="anim" d="M210.4,24.45A49.25,49.25 0 0 1 210.4,83.55M171,103.25A49.25,49.25 0 0 1 141.45,93.4"/>
+<path class="anim" d="M288,103.25A49.25,49.25 0 0 1 258.45,93.4" stroke="red"/></g></svg>
+

@@ -4,8 +4,6 @@
 
 # Dossiers de sortie/export
 /output/
-*.svg
-
 # Doc automatique
 /docs/
 
