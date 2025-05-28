@@ -1,0 +1,80 @@
+<project name="Geometrie" default="compile" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="classes"/>
+    <property name="libs.dir" value="libs"/>
+    <property name="doc.dir" value="docs/javadoc"/>
+    <property name="main.class.gui" value="fr.esisar.geometrie.gui.GUIInteractifs"/>
+    <property name="main.class.jo" value="fr.esisar.geometrie.JO"/>
+    <property name="main.class.trier" value="fr.esisar.geometrie.CerclesTries"/>
+
+    <path id="classpath">
+        <fileset dir="${libs.dir}" includes="**/*.jar"/>
+    </path>
+
+    <!-- Clean -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+    <!-- Compile -->
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <!-- Generate Javadoc -->
+    <target name="javadoc">
+        <mkdir dir="${doc.dir}"/>
+        <javadoc destdir="${doc.dir}" sourcepath="${src.dir}" classpathref="classpath" use="true" author="true" version="true" windowtitle="Documentation Geometrie">
+            <packageset dir="${src.dir}">
+                <include name="fr/esisar/geometrie/**"/>
+            </packageset>
+        </javadoc>
+    </target>
+
+    <!-- Run GUIInteractifs -->
+    <target name="run.gui" depends="compile">
+        <java classname="${main.class.gui}" fork="true" dir="${build.dir}">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+                <path refid="classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Run JO -->
+    <target name="run.jo" depends="compile">
+        <java classname="${main.class.jo}" fork="true" dir="${build.dir}" output="anneaux.svg">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+                <path refid="classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Run CerclesTries -->
+    <target name="run.trier" depends="compile">
+        <java classname="${main.class.trier}" fork="true" dir="${build.dir}">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+                <path refid="classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Run unit tests -->
+    <target name="test" depends="compile">
+        <java classname="org.junit.platform.console.ConsoleLauncher" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+                <fileset dir="${libs.dir}" includes="junit-platform-console-standalone-*.jar"/>
+            </classpath>
+            <arg value="--class-path"/>
+            <arg value="${build.dir}"/>
+            <arg value="--scan-class-path"/>
+        </java>
+    </target>
+</project>

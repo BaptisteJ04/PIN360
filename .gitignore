@@ -1,0 +1,27 @@
+# Fichiers compilés (si tu compiles localement)
+*.class
+
+# Dossiers de sortie/export
+/output/
+*.svg
+
+# Librairies externes (si gérées manuellement)
+libs/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires de VSCode
+.vscode/
+
+# Fichiers de logs
+*.log
+
+# Fichiers de sauvegarde d'éditeurs
+*~
+
+# Eclipse IDE
+.classpath
+.project
+.settings/
