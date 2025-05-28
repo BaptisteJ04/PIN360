@@ -1,4 +1,5 @@
 # Fichiers compilés (si tu compiles localement)
+/classes/
 *.class
 
 # Dossiers de sortie/export
@@ -7,9 +8,6 @@
 
 # Doc automatique
 /docs/
-
-# Librairies externes (si gérées manuellement)
-libs/
 
 # Fichiers système
 .DS_Store
